@@ -1,6 +1,6 @@
 const amqp = require('amqplib/callback_api');
-
-amqp.connect('amqp://vxpnakxj:0elWQE3rgAS5vd6D2ZoC8oU4lbz3GrQX@sidewinder.rmq.cloudamqp.com/vxpnakxj', function (error, connection) {
+const {rabbitMQUrl} = require('./config');
+amqp.connect(rabbitMQUrl, function (error, connection) {
     connection.createChannel(function (error, channel) {
         var queue = 'task_queue';
         channel.assertQueue(queue, {

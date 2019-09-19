@@ -1,6 +1,6 @@
 const amqp = require('amqplib/callback_api');
-
-amqp.connect('amqp://vxpnakxj:0elWQE3rgAS5vd6D2ZoC8oU4lbz3GrQX@sidewinder.rmq.cloudamqp.com/vxpnakxj', function (error0, connection) {
+const {rabbitMQUrl} = require('../../config');
+amqp.connect(rabbitMQUrl, function (error0, connection) {
     if (error0) {
         throw error0;
     }
